@@ -1,3 +1,8 @@
+# Original / unoptimized photos — drop them here; I convert them into
+# assets/photos/ (web-optimized) which IS committed and deployed.
+# Leading slash = only the repo-root folder, so assets/photos/ still commits.
+/photos/
+
 # macOS
 .DS_Store
 
