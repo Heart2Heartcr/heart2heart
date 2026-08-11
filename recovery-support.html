@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Contact & Free Consultation | Heart to Heart — Costa Rica</title>
-  <meta name="description" content="Schedule a complimentary in-home assessment with Heart to Heart. Call, WhatsApp, or send a message. Serving Costa Rica's Central Pacific coast. No pressure, no obligation.">
-  <link rel="canonical" href="https://www.heart2heartcr.com/contact.html">
+  <title>Recovery &amp; Transitional Support | Post-Hospital Care — Costa Rica</title>
+  <meta name="description" content="Short-term, attentive in-home support that helps clients heal safely at home after a hospital stay, illness, or diagnosis such as stroke or Parkinson's. Same-week consultations available.">
+  <link rel="canonical" href="https://www.heart2heartcr.com/recovery-support.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact Heart to Heart — Schedule a Free Consultation">
-  <meta property="og:description" content="Tell us a little about your situation, and we'll follow up to schedule your complimentary in-home assessment.">
-  <meta property="og:url" content="https://www.heart2heartcr.com/contact.html">
+  <meta property="og:title" content="Recovery & Transitional Support — Heart to Heart">
+  <meta property="og:description" content="From hospital to home, with confidence. Short-term recovery care built around a finish line.">
+  <meta property="og:url" content="https://www.heart2heartcr.com/recovery-support.html">
   <meta property="og:image" content="https://www.heart2heartcr.com/assets/logo-mark.png">
 
   <link rel="icon" href="assets/logo-mark.png">
@@ -25,7 +25,6 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- ============================ UTILITY BAR ============================ -->
   <div class="utility">
     <div class="container">
       <a class="u-phone" href="tel:+50688281934">+506 8828-1934</a>
@@ -34,7 +33,6 @@
     </div>
   </div>
 
-  <!-- ============================== HEADER =============================== -->
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html">
@@ -48,10 +46,10 @@
         <ul>
           <li><a href="index.html#who">Who we help</a></li>
           <li><a href="index.html#day">What care looks like</a></li>
-          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#services" aria-current="page">Services</a></li>
           <li><a href="meet-felicia.html">About</a></li>
           <li><a href="index.html#faq">FAQ</a></li>
-          <li class="nav-cta"><a class="btn btn--primary" href="contact.html" aria-current="page">Schedule a Consultation</a></li>
+          <li class="nav-cta"><a class="btn btn--primary" href="contact.html">Schedule a Consultation</a></li>
         </ul>
       </nav>
     </div>
@@ -59,91 +57,112 @@
 
   <main id="main">
 
-    <!-- ============================= PAGE HERO =========================== -->
+    <!-- PAGE HERO -->
     <section class="band band--harbor page-hero">
       <div class="container">
-        <p class="eyebrow">Get started</p>
-        <h1>Take the first step toward peace of mind.</h1>
-        <p class="lede">Reach out however's easiest. There's no cost and no commitment — just a conversation about what your family needs.</p>
+        <p class="eyebrow">Recovery &amp; Transitional Support</p>
+        <h1>From hospital to home, with confidence.</h1>
+        <p class="lede">Short-term, attentive support that helps clients heal safely at home after a hospital stay, illness, or a diagnosis such as stroke or Parkinson's — built around a finish line.</p>
+        <div class="hero-actions" style="margin-top:1.75rem;">
+          <a class="btn btn--primary" href="contact.html">Request a Same-Week Consultation</a>
+        </div>
       </div>
     </section>
 
-    <!-- ============================== CONTACT =========================== -->
+    <!-- SCENE + OUTCOME -->
     <section class="band band--ivory">
+      <div class="container prose">
+        <p>The hardest part often isn't the hospital. It's the first few weeks back home — when a fall, a missed medication, or simply doing too much too soon can undo real progress.</p>
+        <p>Recovery is not the same as long-term care, and Heart to Heart treats it that way. Care plans are built around a finish line — getting back to the garden, the kitchen, the daily walk — with support that steps back as independence returns.</p>
+        <p class="pullquote">Steady support, with an end in sight.</p>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="band band--sand">
       <div class="container">
-        <div class="contact-grid">
-
-          <div class="contact-intro">
-            <h2>Three ways to reach us.</h2>
-            <ul class="ways">
-              <li>Call us: <a href="tel:+50688281934">+506 8828-1934</a></li>
-              <li>WhatsApp: <a href="https://wa.me/50688281934?text=Hi%2C%20I%27d%20like%20some%20information%20about%20Heart%20to%20Heart." target="_blank" rel="noopener">Message us</a></li>
-              <li>Email: <a href="mailto:heart2heartcr@gmail.com">heart2heartcr@gmail.com</a></li>
-            </ul>
-            <p style="color:var(--ink-mid); margin-top:1.5rem;">A family calling late at night from abroad often reaches for WhatsApp first — that's perfectly fine. We'll follow up to schedule your complimentary in-home assessment.</p>
-            <p class="service-area" style="color:var(--ink-mid);">Serving Garabito, Jacó, Playa Hermosa, Herradura, Punta Leona, Esterillos, Puntarenas, and surrounding Central Pacific communities.</p>
-          </div>
-
-          <div>
-            <!-- Confirmation shown after a successful submit (?submitted=true) -->
-            <div class="form-success" id="form-success" hidden>
-              <h3>Thank you for reaching out.</h3>
-              <p>Someone from our care team will contact you within one business day to schedule your complimentary in-home assessment.</p>
-            </div>
-
-            <!-- Netlify Forms: works automatically once deployed to Netlify. -->
-            <form id="inquiry-form" name="inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="contact.html?submitted=true">
-              <input type="hidden" name="form-name" value="inquiry">
-              <p class="hp"><label>Don't fill this out: <input name="bot-field"></label></p>
-
-              <p style="color:var(--ink-mid); margin-top:0;">Tell us a little about your situation, and we'll follow up to schedule your complimentary in-home assessment. No pressure, no obligation — just a conversation.</p>
-
-              <div class="form-field">
-                <label for="name">Your name</label>
-                <input id="name" name="name" type="text" required>
-              </div>
-              <div class="form-field">
-                <label for="relationship">Your relationship to the client</label>
-                <input id="relationship" name="relationship" type="text" placeholder="e.g., self, daughter, son, spouse">
-              </div>
-              <div class="form-field">
-                <label for="phone">Best phone number</label>
-                <input id="phone" name="phone" type="tel" required>
-              </div>
-              <div class="form-field">
-                <label for="email">Email address</label>
-                <input id="email" name="email" type="email">
-              </div>
-              <div class="form-field">
-                <label for="location">Client's general location (Central Pacific area)</label>
-                <input id="location" name="location" type="text">
-              </div>
-              <div class="form-field">
-                <label for="support">What kind of support are you looking for?</label>
-                <select id="support" name="support">
-                  <option value="">Select one</option>
-                  <option>Personalized daily living</option>
-                  <option>Memory &amp; cognitive support</option>
-                  <option>Recovery after a hospital stay</option>
-                  <option>Lifestyle &amp; wellness / companionship</option>
-                  <option>Not sure yet</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label for="situation">Tell us a little about your situation</label>
-                <textarea id="situation" name="situation"></textarea>
-              </div>
-              <button class="btn btn--primary" type="submit">Request My Free Consultation</button>
-            </form>
-          </div>
-
+        <div class="band-head">
+          <p class="eyebrow">How recovery care begins</p>
+          <h2>A clear path back to independence.</h2>
+          <hr class="rule">
         </div>
+        <div class="steps">
+          <div class="step">
+            <span class="num">I</span>
+            <h3>Discharge</h3>
+            <p>We coordinate with families and discharge planners so nothing falls through the cracks.</p>
+          </div>
+          <div class="step">
+            <span class="num">II</span>
+            <h3>Assessment</h3>
+            <p>A complimentary in-home visit maps the home, the risks, and the recovery goal.</p>
+          </div>
+          <div class="step">
+            <span class="num">III</span>
+            <h3>Care plan</h3>
+            <p>A short-term plan built around a finish line, adjusted as strength returns.</p>
+          </div>
+          <div class="step">
+            <span class="num">IV</span>
+            <h3>Return to independence</h3>
+            <p>Support steps back as the daily walk, the kitchen, and the routine come back.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO + IN PRACTICE -->
+    <section class="band band--ivory">
+      <div class="container profile">
+        <img src="assets/photos/hand-in-hand.jpg" alt="A caregiver steadies a client's hand on a walk" width="872" height="1200">
+        <div>
+          <p class="eyebrow">In practice</p>
+          <h2 style="margin-bottom:1rem;">Getting back to the daily walk, safely.</h2>
+          <ul class="practice">
+            <li>Post-hospital recovery support through those critical first weeks at home.</li>
+            <li>Mobility and fall-risk support, so a good recovery isn't undone by a stumble.</li>
+            <li>Medication oversight that keeps daily routines on track.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="band band--sand">
+      <div class="container">
+        <div class="band-head">
+          <p class="eyebrow">Common questions</p>
+          <h2>Recovery questions families ask.</h2>
+          <hr class="rule">
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Can you help right after a hospital stay?</summary>
+            <p>Yes. Our Recovery &amp; Transitional Support is designed exactly for this — short-term, attentive support that helps clients heal safely at home after a hospital stay, illness, or diagnosis such as stroke or Parkinson's.</p>
+          </details>
+          <details>
+            <summary>How quickly can care begin?</summary>
+            <p>Timelines depend on your family's needs and the type of support required. In many cases, we can schedule a complimentary in-home assessment within days and begin building a care plan shortly after.</p>
+          </details>
+          <details>
+            <summary>Do you work with hospitals or discharge planners?</summary>
+            <p>Yes. We coordinate closely with families and discharge planners to build safe, well-supported transitions home after a hospital stay, illness, or procedure.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="band band--harbor interlude">
+      <div class="container" style="text-align:center;">
+        <h2 style="margin-bottom:1rem;">Need support soon? Let's talk this week.</h2>
+        <p style="color:var(--seafoam); max-width:48ch; margin:0 auto 1.75rem;">Recovery care is time-sensitive. Reach out and we'll move quickly to schedule a complimentary in-home assessment.</p>
+        <a class="btn btn--primary" href="contact.html">Request a Same-Week Consultation</a>
       </div>
     </section>
 
   </main>
 
-  <!-- ============================== FOOTER ============================= -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-brand">
@@ -189,7 +208,7 @@
   <nav class="mobile-bar" aria-label="Quick actions">
     <a href="tel:+50688281934">Call</a>
     <a href="https://wa.me/50688281934?text=Hi%2C%20I%27d%20like%20some%20information%20about%20Heart%20to%20Heart." target="_blank" rel="noopener">WhatsApp</a>
-    <a class="schedule" href="#inquiry-form">Schedule</a>
+    <a class="schedule" href="contact.html">Schedule</a>
   </nav>
 
   <script>
@@ -207,14 +226,6 @@
       }
       var y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
-
-      // Show the confirmation message after a successful Netlify submit.
-      if (location.search.indexOf('submitted=true') !== -1) {
-        var ok = document.getElementById('form-success');
-        var form = document.getElementById('inquiry-form');
-        if (ok) { ok.hidden = false; ok.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-        if (form) form.hidden = true;
-      }
     })();
   </script>
 </body>
