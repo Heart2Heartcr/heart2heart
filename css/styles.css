@@ -1,0 +1,473 @@
+/* =========================================================================
+   Heart to Heart — Coastal Luxe stylesheet
+   Plain CSS, mobile-first. No build step.
+
+   Structure:
+     1. Design tokens (colors, type)   — edit brand values here
+     2. Base / reset
+     3. Layout helpers (bands, container)
+     4. Buttons & links
+     5. Header / utility bar / nav
+     6. Homepage sections
+     7. Footer
+     8. Larger screens (min-width media queries)
+   ========================================================================= */
+
+/* 1. DESIGN TOKENS ------------------------------------------------------- */
+:root {
+  /* Coastal Luxe palette (from the Brand & Production Guide) */
+  --deep-harbor: #0F3B4C;
+  --harbor-deep: #0A2B37;
+  --tidewater: #2C7A8C;
+  --tidewater-light: #7CA8B2;
+  --seafoam: #DDE9EB;
+  --warm-sand: #EFE6D9;
+  --sand-wash: #F7F2EA;
+  --ivory: #FCFAF7;
+  --coral: #C0574F;   /* accent — use sparingly (buttons, single rules) */
+  --gold: #C2A462;    /* detail rules only, never fills */
+  --ink: #232A2E;     /* body text on light grounds */
+  --ink-mid: #55636A; /* secondary / descriptive text */
+
+  /* Type — Lora carries the voice, Lato carries the information */
+  --serif: "Lora", Georgia, serif;
+  --sans: "Lato", "Helvetica Neue", Arial, sans-serif;
+
+  --container: 1120px;
+  --measure: 68ch;      /* comfortable reading width */
+  --pad: 1.5rem;        /* horizontal page padding on mobile */
+}
+
+/* 2. BASE / RESET ------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 400;
+  font-size: 1.0625rem;      /* ~17px */
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--ivory);  /* never pure white */
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;        /* guard against accidental horizontal scroll */
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--deep-harbor);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+  /* Sentence case in the copy — never ALL CAPS on headlines */
+}
+
+h1 { font-size: clamp(2rem, 6vw, 3.1rem); }
+h2 { font-size: clamp(1.6rem, 4.5vw, 2.3rem); }
+h3 { font-size: 1.25rem; }
+
+p { margin: 0 0 1rem; max-width: var(--measure); }
+
+a { color: var(--tidewater); text-underline-offset: 3px; }
+a:hover { color: var(--harbor-deep); }
+
+/* Eyebrow label — the only place we use tracked caps */
+.eyebrow {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--tidewater);
+  margin: 0 0 0.9rem;
+}
+
+/* 3. LAYOUT -------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+/* One idea per band; alternate grounds harbor / sand / ivory */
+.band { padding-block: clamp(3rem, 9vw, 5.5rem); }
+.band--ivory { background: var(--ivory); }
+.band--sand { background: var(--sand-wash); }
+.band--seafoam { background: var(--seafoam); }
+.band--harbor { background: var(--deep-harbor); color: var(--ivory); }
+.band--harbor h1,
+.band--harbor h2,
+.band--harbor h3 { color: var(--ivory); }
+
+/* Gold hairline under section headings */
+.band-head { margin-bottom: 2.5rem; }
+.band-head h2 { margin-bottom: 0.6rem; }
+.band-head .rule {
+  width: 56px; height: 2px; background: var(--gold);
+  border: 0; margin: 0.9rem 0 0;
+}
+.band-head--center { text-align: center; }
+.band-head--center p { margin-inline: auto; }
+.band-head--center .rule { margin-inline: auto; }
+
+/* 4. BUTTONS & LINKS ---------------------------------------------------- */
+.btn {
+  display: inline-block;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  padding: 0.85rem 1.6rem;
+  border-radius: 2px;       /* nearly square — no soft cards */
+  transition: background-color 0.18s ease, color 0.18s ease;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+}
+/* Primary = coral, used sparingly */
+.btn--primary { background: var(--coral); color: var(--ivory); }
+.btn--primary:hover { background: #a84a43; color: var(--ivory); }
+/* On dark grounds, an ivory outline button */
+.btn--ghost {
+  background: transparent; color: var(--ivory);
+  border-color: rgba(252, 250, 247, 0.55);
+}
+.btn--ghost:hover { background: rgba(252, 250, 247, 0.1); color: var(--ivory); }
+
+/* Quiet secondary text link with arrow */
+.arrow-link {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--tidewater);
+}
+.arrow-link::after { content: " \2192"; }
+.arrow-link:hover { color: var(--harbor-deep); }
+.band--harbor .arrow-link { color: var(--tidewater-light); }
+.band--harbor .arrow-link:hover { color: var(--ivory); }
+
+/* 5. HEADER ------------------------------------------------------------- */
+/* Utility bar — quiet strip above the main header */
+.utility {
+  background: var(--harbor-deep);
+  color: var(--tidewater-light);
+  font-size: 0.8rem;
+}
+.utility .container {
+  display: flex; flex-wrap: wrap; gap: 0.25rem 1.1rem;
+  justify-content: flex-end; align-items: center;
+  padding-block: 0.4rem;
+}
+.utility a { color: var(--tidewater-light); text-decoration: none; }
+.utility a:hover { color: var(--ivory); }
+.utility .u-phone { margin-right: auto; } /* phone left, rest right */
+
+/* Main header */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--ivory);
+  border-bottom: 1px solid var(--warm-sand);
+}
+.site-header .container {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-block: 0.75rem;
+}
+.brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+.brand img { height: 40px; width: auto; }
+.brand .wordmark {
+  font-family: var(--serif); font-weight: 600; font-size: 1.35rem;
+  color: var(--deep-harbor); line-height: 1; white-space: nowrap;
+}
+
+/* Nav — hidden behind a toggle on mobile */
+.nav-toggle {
+  display: inline-flex; flex-direction: column; gap: 4px;
+  background: none; border: 0; padding: 0.4rem; cursor: pointer;
+}
+.nav-toggle span { width: 24px; height: 2px; background: var(--deep-harbor); }
+
+.primary-nav { display: none; }
+.primary-nav.open {
+  display: block;
+  position: absolute; left: 0; right: 0; top: 100%;
+  background: var(--ivory);
+  border-bottom: 1px solid var(--warm-sand);
+  box-shadow: 0 8px 24px rgba(15, 59, 76, 0.08);
+}
+.primary-nav ul { list-style: none; margin: 0; padding: 0.5rem var(--pad) 1rem; }
+.primary-nav li { border-bottom: 1px solid var(--sand-wash); }
+.primary-nav a {
+  display: block; padding: 0.85rem 0;
+  font-weight: 700; text-decoration: none; color: var(--deep-harbor);
+}
+.primary-nav .nav-cta { margin-top: 0.9rem; border: 0; }
+.primary-nav .nav-cta a { padding: 0; }
+
+/* 6. HOMEPAGE SECTIONS -------------------------------------------------- */
+
+/* Hero — runs without photography by design (see brand guide) */
+.hero {
+  background:
+    radial-gradient(120% 90% at 85% -10%, rgba(44,122,140,0.35), transparent 60%),
+    var(--deep-harbor);
+  color: var(--ivory);
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.5rem, 12vw, 7rem);
+}
+/* Abstracted-horizon concentric arcs, very low contrast */
+.hero::after {
+  content: ""; position: absolute; right: -12%; bottom: -55%;
+  width: 620px; height: 620px; border-radius: 50%;
+  border: 1px solid rgba(124,168,178,0.18);
+  box-shadow:
+    0 0 0 40px rgba(124,168,178,0.10),
+    0 0 0 90px rgba(124,168,178,0.06);
+  pointer-events: none;
+}
+.hero .container { position: relative; z-index: 1; }
+.hero .eyebrow { color: var(--tidewater-light); }
+.hero h1 { color: var(--ivory); max-width: 15ch; }
+.hero .lede {
+  font-size: 1.15rem; color: var(--seafoam); max-width: 46ch;
+  margin-bottom: 2rem;
+}
+.hero-actions { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; align-items: center; }
+
+/* Philosophy statement — quiet centered band */
+.statement { text-align: center; }
+.statement h2 {
+  font-size: clamp(1.7rem, 5vw, 2.6rem);
+  max-width: 18ch; margin-inline: auto;
+}
+.statement p { margin-inline: auto; color: var(--ink-mid); }
+
+/* Card grids (no boxes/shadows — hairline rules do the work) */
+.grid { display: grid; gap: 1.75rem; }
+
+.audience {
+  border-top: 2px solid var(--warm-sand);
+  padding-top: 1.1rem;
+}
+.audience h3 { margin-bottom: 0.35rem; }
+.audience p { color: var(--ink-mid); font-size: 0.98rem; }
+
+/* Service list */
+.service {
+  border-top: 1px solid var(--warm-sand);
+  padding-top: 1rem;
+}
+.service h3 { color: var(--deep-harbor); margin-bottom: 0.3rem; }
+.service p { color: var(--ink-mid); font-size: 0.97rem; margin-bottom: 0.5rem; }
+
+/* A day with Heart to Heart — vignettes */
+.vignette { border-top: 2px solid var(--gold); padding-top: 1.1rem; }
+.vignette .eyebrow { color: var(--gold); }
+.vignette h3 { font-style: italic; font-weight: 500; color: var(--deep-harbor); }
+.vignette p { color: var(--ink-mid); }
+
+/* Pull quote — used on Meet Felicia and homepage founder section */
+.pullquote {
+  font-family: var(--serif); font-style: italic; font-weight: 500;
+  font-size: clamp(1.5rem, 4vw, 2rem); color: var(--tidewater);
+  line-height: 1.3; max-width: 24ch; margin: 1.75rem 0;
+}
+.prose .pullquote {
+  max-width: none; margin: 2rem 0;
+  padding-left: 1.25rem; border-left: 3px solid var(--gold);
+}
+.founder .pullquote { max-width: 22ch; margin: 0 0 1.5rem; }
+.founder .signature {
+  font-family: var(--serif); font-style: italic; color: var(--ink-mid);
+  margin-top: 0.5rem;
+}
+
+/* Professional oversight — mist block callout */
+.oversight {
+  background: var(--seafoam);
+  border-left: 3px solid var(--tidewater);
+  padding: clamp(1.75rem, 5vw, 2.5rem);
+}
+.oversight h2 { color: var(--deep-harbor); }
+.credentials {
+  list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem;
+  margin: 1.25rem 0 0; padding: 0;
+}
+.credentials li {
+  font-family: var(--sans); font-weight: 700; font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--deep-harbor);
+  border: 1px solid var(--tidewater);
+  padding: 0.35rem 0.7rem; border-radius: 2px;
+}
+
+/* Costa Rica interlude */
+.interlude { text-align: center; }
+.interlude p {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(1.4rem, 4vw, 2rem); color: var(--ivory);
+  max-width: 24ch; margin-inline: auto;
+}
+
+/* FAQ — native <details>, no JS needed */
+.faq { max-width: 780px; }
+.faq details {
+  border-top: 1px solid var(--warm-sand);
+  padding: 0.4rem 0;
+}
+.faq details[open] summary { color: var(--deep-harbor); }
+.faq summary {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
+  color: var(--deep-harbor); cursor: pointer; list-style: none;
+  padding: 0.85rem 2rem 0.85rem 0; position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; position: absolute; right: 0; top: 0.7rem;
+  font-family: var(--sans); font-weight: 400; font-size: 1.5rem;
+  color: var(--tidewater);
+}
+.faq details[open] summary::after { content: "\2013"; }
+.faq details p { color: var(--ink-mid); padding-bottom: 0.6rem; }
+
+/* Contact / final CTA */
+.contact-grid { display: grid; gap: 2.5rem; }
+.contact-intro p { color: var(--ink-mid); }
+.ways { list-style: none; padding: 0; margin: 1.5rem 0 0; }
+.ways li { margin-bottom: 0.75rem; }
+.ways a { font-weight: 700; text-decoration: none; }
+
+/* Form */
+.form-field { margin-bottom: 1.1rem; }
+.form-field label {
+  display: block; font-weight: 700; font-size: 0.85rem;
+  color: var(--deep-harbor); margin-bottom: 0.35rem;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%; font-family: var(--sans); font-size: 1rem;
+  padding: 0.7rem 0.8rem; color: var(--ink);
+  background: var(--ivory);
+  border: 1px solid var(--warm-sand); border-radius: 2px;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: 2px solid var(--tidewater); outline-offset: 1px;
+  border-color: var(--tidewater);
+}
+.form-field textarea { min-height: 120px; resize: vertical; }
+.hp { position: absolute; left: -5000px; } /* honeypot */
+
+/* Post-submit confirmation (shown via ?submitted=true) */
+.form-success {
+  background: var(--seafoam);
+  border-left: 3px solid var(--tidewater);
+  padding: 1.5rem 1.6rem;
+}
+.form-success h3 { color: var(--deep-harbor); margin-bottom: 0.35rem; }
+.form-success p { margin: 0; color: var(--ink-mid); }
+
+/* Interior page header — compact harbor band */
+.page-hero { padding-block: clamp(2.5rem, 8vw, 4rem); }
+.page-hero .eyebrow { color: var(--tidewater-light); }
+.page-hero h1 { color: var(--ivory); max-width: 20ch; }
+.page-hero .lede { color: var(--seafoam); font-size: 1.1rem; max-width: 52ch; margin-bottom: 0; }
+
+/* Long-form reading column (founder narrative, articles) */
+.prose { max-width: 62ch; }
+.prose p { font-size: 1.08rem; }
+.prose p:first-of-type { font-size: 1.18rem; color: var(--ink); }
+
+/* 7. FOOTER ------------------------------------------------------------- */
+.site-footer { background: var(--deep-harbor); color: var(--tidewater-light); }
+.site-footer .container { padding-block: clamp(2.75rem, 7vw, 4rem); }
+.footer-brand img { height: 46px; margin-bottom: 0.75rem; }
+.footer-brand .brand-line {
+  font-family: var(--serif); color: var(--ivory);
+  font-size: 1.05rem; margin: 0 0 0.5rem;
+}
+.footer-brand .heartmark { color: var(--coral); }
+.footer-cols { display: grid; gap: 2rem; margin-top: 2.5rem; }
+.footer-cols h4 {
+  font-family: var(--sans); font-weight: 700; font-size: 0.72rem;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--tidewater-light); margin: 0 0 0.9rem;
+}
+.footer-cols ul { list-style: none; margin: 0; padding: 0; }
+.footer-cols li { margin-bottom: 0.55rem; }
+.footer-cols a { color: var(--seafoam); text-decoration: none; font-size: 0.95rem; }
+.footer-cols a:hover { color: var(--ivory); }
+.service-area { font-size: 0.9rem; line-height: 1.7; color: var(--tidewater-light); }
+.footer-bottom {
+  border-top: 1px solid rgba(124,168,178,0.2);
+  margin-top: 2.5rem; padding-top: 1.5rem;
+  display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; justify-content: space-between;
+  font-size: 0.82rem; color: var(--tidewater-light);
+}
+.footer-bottom a { color: var(--tidewater-light); }
+
+/* Sticky mobile action bar — Call · WhatsApp · Schedule (thumb-reachable) */
+.mobile-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  background: var(--ivory); border-top: 1px solid var(--warm-sand);
+  box-shadow: 0 -4px 16px rgba(15,59,76,0.08);
+}
+.mobile-bar a {
+  text-align: center; padding: 0.85rem 0.5rem;
+  font-weight: 700; font-size: 0.82rem; text-decoration: none;
+  color: var(--deep-harbor);
+}
+.mobile-bar a + a { border-left: 1px solid var(--sand-wash); }
+.mobile-bar a.schedule { background: var(--coral); color: var(--ivory); }
+body { padding-bottom: 56px; } /* room for the sticky bar on mobile */
+
+/* Skip link for accessibility */
+.skip { position: absolute; left: -9999px; }
+.skip:focus {
+  left: var(--pad); top: 0.5rem; z-index: 100; background: var(--ivory);
+  padding: 0.5rem 1rem; border: 2px solid var(--tidewater);
+}
+
+/* 8. LARGER SCREENS ----------------------------------------------------- */
+@media (min-width: 720px) {
+  .grid--audiences { grid-template-columns: repeat(2, 1fr); }
+  .grid--services { grid-template-columns: repeat(2, 1fr); }
+  .grid--vignettes { grid-template-columns: repeat(3, 1fr); }
+  .footer-cols { grid-template-columns: 1.4fr 1fr 1fr; }
+  .contact-grid { grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; }
+}
+
+@media (min-width: 960px) {
+  :root { --pad: 2rem; }
+
+  /* Show full nav, hide the hamburger + sticky mobile bar */
+  .nav-toggle { display: none; }
+  .mobile-bar { display: none; }
+  body { padding-bottom: 0; }
+
+  .primary-nav { display: block; position: static; box-shadow: none; border: 0; background: none; }
+  .primary-nav ul { display: flex; align-items: center; gap: 1.5rem; padding: 0; }
+  .primary-nav li { border: 0; }
+  .primary-nav a { padding: 0.25rem 0; font-size: 0.95rem; }
+  .primary-nav .nav-cta { margin: 0 0 0 0.5rem; }
+  .primary-nav .nav-cta a { padding: 0.7rem 1.3rem; }
+
+  .grid--services { grid-template-columns: repeat(3, 1fr); }
+  .grid--audiences { grid-template-columns: repeat(4, 1fr); }
+  .founder { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3.5rem; align-items: center; }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
