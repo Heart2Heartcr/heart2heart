@@ -289,6 +289,10 @@ a:hover { color: var(--harbor-deep); }
 
 /* A day with Heart to Heart — vignettes */
 .vignette { border-top: 2px solid var(--gold); padding-top: 1.1rem; }
+.vignette-photo {
+  width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center;
+  margin-bottom: 1rem;
+}
 .vignette .eyebrow { color: var(--gold); }
 .vignette h3 { font-style: italic; font-weight: 500; color: var(--deep-harbor); }
 .vignette p { color: var(--ink-mid); }
