@@ -152,14 +152,6 @@
       }
       var y = document.getElementById('year');
       if (y) y.textContent = new Date().getFullYear();
-
-      // Show the confirmation message after a successful Netlify submit.
-      if (location.search.indexOf('submitted=true') !== -1) {
-        var ok = document.getElementById('form-success');
-        var form = document.getElementById('inquiry-form');
-        if (ok) { ok.hidden = false; ok.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-        if (form) form.hidden = true;
-      }
     })();
   </script>
 </body>
