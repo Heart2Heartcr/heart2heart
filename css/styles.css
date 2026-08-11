@@ -369,7 +369,18 @@ a:hover { color: var(--harbor-deep); }
 .faq details[open] summary::after { content: "\2013"; }
 .faq details p { color: var(--ink-mid); padding-bottom: 0.6rem; }
 
-/* Contact / final CTA */
+/* WhatsApp-first contact block */
+.contact-methods { text-align: center; max-width: 560px; margin-inline: auto; }
+.btn .wa-glyph { width: 1.15em; height: 1.15em; fill: currentColor; vertical-align: -0.18em; margin-right: 0.5em; }
+.btn--lg { font-size: 1.05rem; padding: 1rem 2rem; }
+.contact-alt {
+  display: flex; flex-wrap: wrap; gap: 0.4rem 2rem; justify-content: center;
+  margin-top: 1.5rem;
+}
+.contact-alt a { font-weight: 700; text-decoration: none; }
+.contact-methods .service-area { color: var(--ink-mid); margin-top: 1.5rem; }
+
+/* Contact / final CTA (legacy grid, kept for any two-col contact use) */
 .contact-grid { display: grid; gap: 2.5rem; }
 .contact-intro p { color: var(--ink-mid); }
 .ways { list-style: none; padding: 0; margin: 1.5rem 0 0; }
